@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Post } from '../post.model';
 
 import { PostComponent } from '../post/post.component';
+import { PostService } from '../post.service';
 
 @Component({
   selector: 'app-post-list',
@@ -11,15 +12,12 @@ import { PostComponent } from '../post/post.component';
   styleUrl: './post-list.component.scss'
 })
 export class PostListComponent {
-  listOfPosts: Post[] = [
-    new Post(
-      'title1', 'desc1', 'https://fakeimg.pl/300/', 'author1', new Date()
-    ),
-    new Post(
-      'title2', 'desc2', 'https://fakeimg.pl/300/', 'author2', new Date()
-    ),
-    new Post(
-      'title3', 'desc3', 'https://fakeimg.pl/300/', 'author3', new Date()
-    )
-  ]
+  listOfPosts: Post[] = []
+
+  constructor(private postService: PostService) { }
+
+  ngOnInit(): void {
+    this.listOfPosts = this.postService.getPosts()
+  }
+
 }

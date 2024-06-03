@@ -1,4 +1,5 @@
-<p>post-list works!</p>
-<app-post [post]="listOfPosts[0]"></app-post>
-<app-post [post]="listOfPosts[1]"></app-post>
-<app-post [post]="listOfPosts[2]"></app-post>
+<div class="container-fluid">
+  @for (post of listOfPosts; track post; let index = $index) {
+  <app-post [post]="post" [index]="index"></app-post>
+  }
+</div>
