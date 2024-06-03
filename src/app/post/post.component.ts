@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Post } from '../post.model';
+import { PostService } from '../post.service';
 
 @Component({
   selector: 'app-post',
@@ -8,14 +9,18 @@ import { Post } from '../post.model';
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss'
 })
+
 export class PostComponent {
   @Input() post?: Post;
+  @Input() index: number = -1
 
-  constructor() { }
+  constructor(private postService: PostService) { }
 
-  ngOnInit(): void {
-    console.log(this.post)
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
+  ngOnInit(): void { }
+
+
+  onDelete(): void {
+    if (this.index < 0) return
+    this.postService.deletePost(this.index)
   }
 }
