@@ -19,6 +19,10 @@ export class PostService {
     return this.listOfPost;
   }
 
+  getPost(index: number) {
+    return this.listOfPost[index]
+  }
+
   deletePost(index: number) {
     this.listOfPost.splice(index, 1);
   }

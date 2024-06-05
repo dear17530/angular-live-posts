@@ -2,7 +2,9 @@
 
   <div class="row">
     <div class="col-6">
-      <h3>Post Add</h3>
+      <h3 *ngIf="!editMode">Post Add</h3>
+      <h3 *ngIf="editMode">Post Edit</h3>
+
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="mb-3">
           <label class="form-label" for="title">Title</label>
