@@ -1,0 +1,8 @@
+// ngModel會附加的class
+// .ng-touched 被點擊接觸過
+// .ng-dirty   值被改變
+// .ng-invalid 值不符合驗證
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border: 1px solid red;
+}

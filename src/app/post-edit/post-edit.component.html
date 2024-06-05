@@ -1,1 +1,30 @@
-<p>post-edit works!</p>
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-6">
+      <h3>Post Add</h3>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label class="form-label" for="title">Title</label>
+          <input class="form-control" type="text" id="title" formControlName="title">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="description">Description</label>
+          <textarea class="form-control" id="description" formControlName="description"></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="imagePath">imath Path</label>
+          <input class="form-control" type="text" id="imagePath" formControlName="imagePath">
+        </div>
+
+        <div class="text-end">
+          <button type="submit" class="btn btn-success" [disabled]="!form.valid">save</button>
+          <span> | </span>
+          <button type="reset" class="btn btn-danger">reset</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
